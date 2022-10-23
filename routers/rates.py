@@ -25,7 +25,6 @@ async def get_daily_average_rates(date_from: date, date_to: date, origin: str, d
             'data': convert_response_to_json(output)
         }
         return JSONResponse(status_code=status.HTTP_200_OK, content=response_payload)
-
     except Exception as ex:
         response_payload = {
             'message': 'Failed to retrieve resource',
