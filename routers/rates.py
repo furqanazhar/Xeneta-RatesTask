@@ -11,11 +11,11 @@ router = APIRouter()
 db = Database()
 
 @router.get('/rates', response_description='Get daily average rates between origin and destination ports/regions')
-async def get_daily_average_rates():
+async def get_daily_average_rates(rates: Rates):
     try:
         payload = {
             'message': 'Successfully retrieved resource',
-            'data': convert_response_to_json('data')
+            'data': convert_response_to_json(rates)
         }
         return JSONResponse(status_code=status.HTTP_200_OK, content=payload)
     except Exception as ex:
