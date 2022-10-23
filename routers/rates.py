@@ -1,6 +1,6 @@
 import json
 import traceback
-from fastapi import APIRouter, status, File, UploadFile
+from fastapi import APIRouter, status
 from fastapi.responses import JSONResponse
 from models.rates import Rates
 from utils.helper import convert_response_to_json
