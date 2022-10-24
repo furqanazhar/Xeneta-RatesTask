@@ -18,7 +18,7 @@ async def get_daily_average_rates(date_from: date, date_to: date, origin: str, d
         if not isValidDifference:
             response_payload = {'error': 'Date_From cannot be greater than Date_To'}
             return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content=response_payload)
-        output = await db.get_average_rates()
+        output = await db.get_average_rates(date_from, date_to, origin, destination)
 
         response_payload = {
             'message': 'Successfully retrieved resource',
