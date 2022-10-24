@@ -10,8 +10,18 @@ class Database:
                         password="ratestask")
 
 
-    async def get_average_rates(self):
+    async def get_average_rates(self, date_from, date_to, origin, destination):
         cursor = self.database.cursor()
-        cursor.execute("SELECT * FROM ports")
+        query = """
+            SELECT p.day, ROUND(AVG(p.price),2) AS average_price
+            FROM prices p
+            WHERE p.orig_code = %s
+            AND p.dest_code = %s
+            AND p.day >= %s
+            AND p.day <= %s
+            GROUP BY p.day
+        """
+        cursor.execute(query, (origin, destination, date_from, date_to))
         result = cursor.fetchall()
         return result
+        
