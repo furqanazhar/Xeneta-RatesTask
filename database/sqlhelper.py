@@ -12,10 +12,13 @@ class Database:
 
 
     async def get_average_rates(self, date_from, date_to, origin, destination):
-        path = os.path.join('database','scripts','get_daily_rates.sql')
-        with open(path, 'r') as file:
-            with self.database.cursor() as cursor:
-                cursor.execute(file.read(), (origin, destination, date_from, date_to))
-                result = cursor.fetchall()
-        return result
+        try:
+            path = os.path.join('database','scripts','get_daily_rates.sql')
+            with open(path, 'r') as file:
+                with self.database.cursor() as cursor:
+                    cursor.execute(file.read(), {'origin': origin, 'destination': destination, 'date_from': date_from, 'date_to': date_to})
+                    result = cursor.fetchall()
+            return result
+        except Exception as ex:
+            return ex
         
