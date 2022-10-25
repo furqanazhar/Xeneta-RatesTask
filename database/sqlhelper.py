@@ -1,4 +1,5 @@
 import psycopg2
+import os
 
 class Database:
 
@@ -11,17 +12,10 @@ class Database:
 
 
     async def get_average_rates(self, date_from, date_to, origin, destination):
-        cursor = self.database.cursor()
-        query = """
-            SELECT p.day, ROUND(AVG(p.price),2) AS average_price
-            FROM prices p
-            WHERE p.orig_code = %s
-            AND p.dest_code = %s
-            AND p.day >= %s
-            AND p.day <= %s
-            GROUP BY p.day
-        """
-        cursor.execute(query, (origin, destination, date_from, date_to))
-        result = cursor.fetchall()
+        path = os.path.join('database','scripts','get_daily_rates.sql')
+        with open(path, 'r') as file:
+            with self.database.cursor() as cursor:
+                cursor.execute(file.read(), (origin, destination, date_from, date_to))
+                result = cursor.fetchall()
         return result
         
