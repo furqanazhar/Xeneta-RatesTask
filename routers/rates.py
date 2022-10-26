@@ -1,10 +1,8 @@
 from datetime import date
-import json
-import traceback
 from fastapi import APIRouter, status
+from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-from utils.helper import convert_response_to_json, check_date_difference
-from typing import List
+from utils.helper import check_date_difference
 from database.sqlhelper import Database
 
 router = APIRouter()
@@ -22,12 +20,12 @@ async def get_daily_average_rates(date_from: date, date_to: date, origin: str, d
 
         response_payload = {
             'message': 'Successfully retrieved resource',
-            'data': convert_response_to_json(output)
+            'data': jsonable_encoder(output)
         }
         return JSONResponse(status_code=status.HTTP_200_OK, content=response_payload)
     except Exception as ex:
         response_payload = {
             'message': 'Failed to retrieve resource',
-            'error': convert_response_to_json(ex)
+            'error': jsonable_encoder(ex)
         }
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content=response_payload)
