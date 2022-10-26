@@ -18,7 +18,8 @@ class Database:
                 with self.database.cursor() as cursor:
                     cursor.execute(file.read(), {'origin': origin, 'destination': destination, 'date_from': date_from, 'date_to': date_to})
                     result = cursor.fetchall()
-            return result
+                    average_prices = [dict(zip(['day', 'average_price'], price)) for price in result]
+            return average_prices
         except Exception as ex:
             return ex
         
