@@ -7,7 +7,6 @@ import pytest
 def test_check_date_diff():
     date_from = date.today() - timedelta(days = 4)
     date_to = date.today()
-    print('date_from', date_from)
     assert check_date_difference(date_from, date_to) == True
 
     date_from = date.today()
