@@ -1,6 +1,7 @@
 """This module contains endpoints"""
 
 from datetime import date
+from urllib import response
 from fastapi import APIRouter, status
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
@@ -17,18 +18,11 @@ async def get_daily_average_rates(date_from: date, date_to: date, origin: str, d
     try:
         is_valid_difference = check_date_difference(date_from, date_to)
         if not is_valid_difference:
-            response_payload = {'error': 'Date_From cannot be greater than Date_To'}
+            response_payload = 'Date_From cannot be greater than Date_To'
             return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content=response_payload)
         output = await db.get_average_rates(date_from, date_to, origin, destination)
-
-        response_payload = {
-            'message': 'Successfully retrieved resource',
-            'data': jsonable_encoder(output)
-        }
+        response_payload = jsonable_encoder(output)
         return JSONResponse(status_code=status.HTTP_200_OK, content=response_payload)
     except Exception as ex:
-        response_payload = {
-            'message': 'Failed to retrieve resource',
-            'error': jsonable_encoder(ex)
-        }
+        response_payload = jsonable_encoder(ex)
         return JSONResponse(status_code=status.HTTP_400_BAD_REQUEST, content=response_payload)
