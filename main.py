@@ -8,7 +8,7 @@ from routers import rates
 
 app = FastAPI()
 
-origins = ["http://localhost:8001"]
+origins = ["http://localhost:8000"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -24,4 +24,4 @@ app.include_router(
 )
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8001, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
