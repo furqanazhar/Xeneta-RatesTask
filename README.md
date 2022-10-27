@@ -1,18 +1,16 @@
 # Xeneta-RatesTask
 Http based API to calculate average daily rate between geographic groups of ports
 
-1. Setup Environment
-```bash
-conda create -n rates python=3.10
-conda activate rates
-```
+Pre-Requisites
+1. Git
+2. IDE
+3. Ubuntu/Windows
+4. Python
+5. Conda
 
-2. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+Run Web Server
 
-3. Run Server
+go to project root directory i.e. Xeneta-RatesTask and run below command
 ```bash
-python main.py
+source .\start.sh
 ```
