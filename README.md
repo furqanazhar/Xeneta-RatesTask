@@ -50,6 +50,11 @@ Go to project root directory i.e. Xeneta-RatesTask and run below command in term
 ```bash
 source ./start.sh
 ```
+```bash
+http://localhost:8000/docs
+```
+
+Open above link to starting using API swagger
 
 ## API Endpoint Description
 
