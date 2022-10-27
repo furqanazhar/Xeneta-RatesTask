@@ -10,19 +10,20 @@ Pre-Requisites
 
 Run Web Server
 
-Go to project root directory i.e. Xeneta-RatesTask and run below command
+Go to project root directory i.e. Xeneta-RatesTask and run below command in terminal
 ```bash
 source ./start.sh
 ```
 
 # API Endpoint Description
 
-Input Parameters
+Request Parameters
 
 * date_from
 * date_to
 * origin
 * destination
+
 
 API usage from curl
 ```bash
