@@ -24,20 +24,21 @@ Request Parameters
 * origin
 * destination
 
+Response
+
+List of average rates
+
 
 API usage from curl
 ```bash
 curl "http://localhost:8000/rates?date_from=2016-01-01&date_to=2016-01-01&origin=CNGGZ&destination=EETLL"
 
-{
-  "message": "Successfully retrieved resource",
-  "data": [
-    {
-      "day": "2016-01-01",
-      "average_price": 1155
-    }
-  ]
-}
+[
+  {
+    "day": "2016-01-01",
+    "average_price": 1155
+  }
+]
 ```
 
 # Database
