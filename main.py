@@ -1,7 +1,10 @@
+"""This module runs the web server"""
+
 from fastapi import FastAPI
-from routers import rates
-import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
+from routers import rates
+
 
 app = FastAPI()
 
