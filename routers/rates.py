@@ -12,7 +12,7 @@ router = APIRouter()
 db = Database()
 
 
-@router.get('/rates', response_description='Get daily average rates between origin and destination ports/regions')
+@router.get('/rates', response_description='Get daily average rates')
 async def get_daily_average_rates(date_from: date, date_to: date, origin: str, destination: str):
     """This HTTP GET request calculates daily average rates"""
     try:
