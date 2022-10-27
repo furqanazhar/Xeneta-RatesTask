@@ -10,7 +10,7 @@ Pre-Requisites
 
 Run Web Server
 
-go to project root directory i.e. Xeneta-RatesTask and run below command
+Go to project root directory i.e. Xeneta-RatesTask and run below command
 ```bash
-source .\start.sh
+source ./start.sh
 ```
