@@ -8,7 +8,7 @@ Http based API to calculate average daily rate between geographic groups of port
 * Python
 * Conda
 
-## Run Web Server
+## Setup
 
 Go to project root directory i.e. Xeneta-RatesTask and run below command in terminal
 ```bash
