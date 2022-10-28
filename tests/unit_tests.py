@@ -1,7 +1,9 @@
 """This module runs the unit tests"""
 
 from datetime import date, timedelta, datetime
+from decimal import Decimal
 import pytest
+from fastapi.encoders import jsonable_encoder
 from utils.helper import check_date_difference
 from database.sqlhelper import Database
 
@@ -19,8 +21,8 @@ def test_check_date_diff():
 
 
 @pytest.mark.asyncio
-async def test_avg_rates():
-    """This method runs the unit test for get_average_rates"""
+async def test_invalid_destination():
+    """This method runs the unit test for invalid destination location"""
     database = Database()
     date_format = '%Y-%m-%d'
     date_from = datetime.strptime('2016-01-01', date_format)
@@ -29,3 +31,16 @@ async def test_avg_rates():
     destination = 'ETLL'
     result = await database.get_average_rates(date_from, date_to, source, destination)
     assert result == []
+
+
+@pytest.mark.asyncio
+async def test_valid_destination():
+    """This method runs the unit test for valid destination location"""
+    database = Database()
+    date_format = '%Y-%m-%d'
+    date_from = datetime.strptime('2016-01-01', date_format)
+    date_to = datetime.strptime('2016-01-01', date_format)
+    source = 'CNGGZ'
+    destination = 'BEANR'
+    result = await database.get_average_rates(date_from, date_to, source, destination)
+    assert jsonable_encoder(result) == [{"day": "2016-01-01","average_price": 1128.33}]
