@@ -2,7 +2,6 @@
 Http based API (FastAPI web framework) to calculate average daily rate between geographic groups of ports
 
 ## Pre-Requisites
-* Git
 * IDE
 * Ubuntu/Windows
 * Python
