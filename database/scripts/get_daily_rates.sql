@@ -1,6 +1,6 @@
 SELECT p.day,
        CASE
-           WHEN COUNT(p.price) >= 3 THEN ROUND(AVG(p.price), 0)
+           WHEN COUNT(p.price) >= 3 THEN ROUND(AVG(p.price), 2)
            WHEN COUNT(p.price) < 3 THEN NULL
        END AS average_price
 FROM prices p
@@ -14,7 +14,7 @@ UNION ALL
 
 SELECT p.day,
        CASE
-           WHEN COUNT(p.price) >= 3 THEN ROUND(AVG(p.price), 0)
+           WHEN COUNT(p.price) >= 3 THEN ROUND(AVG(p.price), 2)
            WHEN COUNT(p.price) < 3 THEN NULL
        END AS average_price
 FROM ports r
@@ -31,7 +31,7 @@ UNION ALL
 
 SELECT p.day,
        CASE
-           WHEN COUNT(p.price) >= 3 THEN ROUND(AVG(p.price), 0)
+           WHEN COUNT(p.price) >= 3 THEN ROUND(AVG(p.price), 2)
            WHEN COUNT(p.price) < 3 THEN NULL
        END AS average_price
 FROM ports r
@@ -48,7 +48,7 @@ UNION ALL
 
 SELECT p.day,
        CASE
-           WHEN COUNT(p.price) >= 3 THEN ROUND(AVG(p.price), 0)
+           WHEN COUNT(p.price) >= 3 THEN ROUND(AVG(p.price), 2)
            WHEN COUNT(p.price) < 3 THEN NULL
        END AS average_price
 FROM ports o
