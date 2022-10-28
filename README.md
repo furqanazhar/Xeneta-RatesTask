@@ -47,6 +47,9 @@ with a clean state.
 Go to project root directory i.e. Xeneta-RatesTask and run below command in terminal
 ```bash
  ./start.sh (For Ubuntu/Linux)
+ 
+ or
+ 
  sh ./start.sh (For Windows)
 ```
 
