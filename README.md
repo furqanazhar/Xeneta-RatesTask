@@ -6,7 +6,6 @@ Http based API (FastAPI web framework) to calculate average daily rate between g
 * IDE
 * Ubuntu/Windows
 * Python
-* Conda
 
 ## Setup Postgres
 We have provided a simple Docker setup for you, which will start a
@@ -48,7 +47,8 @@ with a clean state.
 
 Go to project root directory i.e. Xeneta-RatesTask and run below command in terminal
 ```bash
-source ./start.sh
+ ./start.sh (For Ubuntu/Linux)
+ sh ./start.sh (For Windows)
 ```
 
 Open above link to starting using API swagger
