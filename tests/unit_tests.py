@@ -44,3 +44,16 @@ async def test_valid_destination():
     destination = 'BEANR'
     result = await database.get_average_rates(date_from, date_to, source, destination)
     assert jsonable_encoder(result) == [{"day": "2016-01-01","average_price": 1128.33}]
+
+
+@pytest.mark.asyncio
+async def test_null_avg_rate():
+    """This method runs the unit test for null avg rate"""
+    database = Database()
+    date_format = '%Y-%m-%d'
+    date_from = datetime.strptime('2016-01-01', date_format)
+    date_to = datetime.strptime('2016-01-01', date_format)
+    source = 'CNGGZ'
+    destination = 'NOFRK'
+    result = await database.get_average_rates(date_from, date_to, source, destination)
+    assert jsonable_encoder(result) == [{"day": "2016-01-01","average_price": None}]
