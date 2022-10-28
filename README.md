@@ -1,11 +1,6 @@
 # Xeneta-RatesTask
 Http based API (FastAPI web framework) to calculate average daily rate between geographic groups of ports
 
-## Pre-Requisites
-* IDE
-* Ubuntu/Windows
-* Python
-
 ## Setup Postgres
 We have provided a simple Docker setup for you, which will start a
 PostgreSQL instance populated with the assignment data. You don't have
