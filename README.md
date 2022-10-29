@@ -77,6 +77,15 @@ curl "http://localhost:8000/rates?date_from=2016-01-01&date_to=2016-01-01&origin
 ]
 ```
 
-##  Database
+## Unit Tests
+
+We have used Pytest to serve the purpose of unit-testing.
+Run below command to execute tests explicitly although tests are always run before deploying web server.
+Even if one test fails, server does not gets deployed.
+```bash
+pytest .\tests\unit_tests.py
+```
+
+## Database
 
 There is no modification being done in database schema.
