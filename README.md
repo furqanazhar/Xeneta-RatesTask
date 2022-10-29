@@ -79,9 +79,9 @@ curl "http://localhost:8000/rates?date_from=2016-01-01&date_to=2016-01-01&origin
 
 ## Unit Tests
 
-We have used Pytest to serve the purpose of unit-testing.
-Run below command to execute tests explicitly although tests are always run before deploying web server.
-Even if one test fails, server does not gets deployed.
+We have used Pytest to serve the purpose of unit-testing.<br>
+Run below command to execute tests explicitly although tests are always run before deploying web server.<br>
+Even if one test fails, server does not gets deployed.<br>
 ```bash
 pytest .\tests\unit_tests.py
 ```
